@@ -30,13 +30,17 @@
 						<h2>enter the path to the photo you would like us to classify</h2>
 					</header>
 					
-                    <form  method="POST">
+                    <!--form  method="POST">
                         
                         {{ form.hidden_tag() }}
                         {{ form.link_img.label }} {{form.link_img}}
             `           <br>
                         {{ form.submit() }}
-                    </form>   
+					</form-->   
+					<form action = "/prediction" method = "post" enctype="multipart/form-data">  
+						<input type="file" name="file" />  
+						<input type = "submit" value="Upload">  
+					</form> 
 				</div>
 			</section>
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for, session
+from flask import Flask, render_template, session, redirect, url_for, session,request
 from flask_wtf import FlaskForm
 from wtforms import TextField,SubmitField
 from wtforms.validators import NumberRange
@@ -9,15 +9,11 @@ import tensorflow.keras
 import joblib
 import scaler
 
-def return_prediction(model,scaler,sample_json):
+def return_prediction(model,scaler,image):
     #function takes image, converts to numpy array preprocesses it, then predicts what case is
 
-    local_link_to_image = sample_json['linktoimg']
-
-    image = [[local_link_to_image]]
-    
     #we need to create our own scaler for user data preprocess
-    imagedata = scaler.scale(local_link_to_image)
+    imagedata = scaler.scale(image)
     
 
     classes = np.array(['mild-demented', 'moderate-demented','non-demented','very-mild-demented'])
@@ -28,8 +24,7 @@ def return_prediction(model,scaler,sample_json):
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
 
-model = tensorflow.keras.models.load_model("model_one.h5")
-   
+model =  tensorflow.keras.models.load_model('model_one.h5')   
 class ALZForm(FlaskForm):
     link_img = TextField('Link to Image')
 
@@ -48,14 +43,19 @@ def index():
 
     return render_template('index.html', form=form)
 
-@app.route('/prediction')
+@app.route('/success', methods = ['POST'])  
+def success():  
+    if request.method == 'POST':  
+        f = request.files['file']  
+        f.save(f.filename)  
+        return render_template("success.html", name = f.filename)  
+        
+@app.route('/prediction', methods = ['POST','GET'])
 def prediction():
 
-    content = {}
+ 
 
-    content['linktoimg'] = str(session['link_img'])
-
-    results = return_prediction(model=model,scaler=scaler,sample_json=content)
+    results = return_prediction(model=model,scaler=scaler,image=request.files['file'] )
 
     
     return render_template('prediction.html',results=results)
