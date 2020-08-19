@@ -1,9 +1,0 @@
-<h1>FLASK APP RUNNING</h1>
-<h2>Enter your flower measurements below:</h2>
-<form  method="POST">
-    {# This hidden_tag is a CSRF security feature. #}
-    {{ form.hidden_tag() }}
-    {{ form.link_img.label }} {{form.link_img}}
-    <br>
-    {{ form.submit() }}
-</form>

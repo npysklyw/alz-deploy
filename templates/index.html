@@ -1,62 +1,106 @@
-<!DOCTYPE HTML>
-<!--
-	Typify by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>Typify by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="static/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	</head>
-	<body>
+<!DOCTYPE html>
+<html lang="en">
 
-		<!-- Banner -->
-			<section id="banner">
-				<h2>ALZ-CLASSIFERS</h2>
-				<p>A project created to classify stages of alzheimers based on images</p>
-				
-			</section>
+<head>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-		<!-- Two -->
-			<section id="two" class="wrapper style2 special">
-				<div class="inner narrow">
-					<header>
-						<h2>enter the path to the photo you would like us to classify</h2>
-					</header>
-					
-                    <!--form  method="POST">
-                        
-                        {{ form.hidden_tag() }}
-                        {{ form.link_img.label }} {{form.link_img}}
-            `           <br>
-                        {{ form.submit() }}
-					</form-->   
-					<form action = "/prediction" method = "post" enctype="multipart/form-data">  
-						<input type="file" name="file" />  
-						<input type = "submit" value="Upload">  
-					</form> 
-				</div>
-			</section>
+  <title>ALZ-IDENTIFIERS</title>
 
-		
-			<footer id="footer">
-				<div class="copyright">
-					&copy; Alz-Classifers Design: <a href="http://templated.co/">TEMPLATED</a>.
-				</div>
-			</footer>
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
-	</body>
+  <!-- Custom styles for this template -->
+  <link href="static/css/one-page-wonder.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Alz Identifiers</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+  </nav>
+
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">Classify The Stage</h1>
+        <p class="masthead-body mb-0">Upload your image scan below, and we will classify the stage of Alzheimers present</p>
+        
+
+        <form action = "/prediction" method = "post" enctype="multipart/form-data">  
+          <input type="file" name="file" />  
+          <input type = "submit" value="Upload" href="#" class="btn btn-primary btn-xl rounded-pill mt-5">  
+        </form> 
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid square" src="static/img/1.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Our Motive</h2>
+            <p>We entered a team together all ready to do a ML project, but unsure of what topic. But after much discussion, it was decided we should do a project on Alzheimers, since some of our team had been personally effected by it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <img class="img-fluid square" src="static/img/2.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="display-4">The Technicals</h2>
+            <p>We implemented a VGG-16 convolutional neural network using Python library keras. The specific notebook can be found here: <a href="https://github.com/npysklyw/alz-class">https://github.com/npysklyw/alz-class</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; ALZ-IDENTIFIERS 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>
