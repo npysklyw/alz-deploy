@@ -2,12 +2,11 @@ from flask import Flask, render_template, session, redirect, url_for, session,re
 from flask_wtf import FlaskForm
 from wtforms import TextField,SubmitField
 from wtforms.validators import NumberRange
-from keras.models import Model
 
+import keras.models
 import numpy as np  
-import tensorflow.keras
-import joblib
 import scaler
+import h5py
 
 def return_prediction(model,scaler,image):
     #function takes image, converts to numpy array preprocesses it, then predicts what case is
@@ -24,7 +23,7 @@ def return_prediction(model,scaler,image):
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
 
-model =  tensorflow.keras.models.load_model('model_one.h5')   
+model =  keras.models.load_model('model_one.h5')   
 class ALZForm(FlaskForm):
     link_img = TextField('Link to Image')
 

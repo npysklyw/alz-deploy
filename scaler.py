@@ -1,12 +1,7 @@
-from tensorflow.keras.preprocessing import image
 from PIL import Image
 from flask import request
 import numpy as np
-from PIL import Image
-import cv2
-import io
 
-# example of converting an image with the Keras API
 from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing.image import smart_resize
