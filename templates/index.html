@@ -37,30 +37,30 @@
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">Classify The Stage</h1>
-        <p class="masthead-body mb-0">This website uses AI to categorize what stage of Alzheimer’s a certain patient is at. The algorithm uses a convolutional neural network to classify the scans and a stochastic gradient descent as its optimizer. To test the algorithm, upload your MRI scan and it will categorize it under one of the following categories: 
+        <h1 class="masthead-heading mb-0">Our Project</h1>
+        <H2 class="masthead-body mb-0">This website uses AI to categorize what stage of Alzheimer’s a certain patient is at. To test the model, upload your MRI scan and it will categorize it under one of the following categories: 
+      
+            <div class="container">
+              <br>
+              <ol>     
+              <li>No Dementia</li>
+              <br>
+              <li>Very mild Dementia</li>
+              <br>
+              <li>Mild Dementia</li>
+              <br>
+              <li>Moderate Dementia</li>
+              <br>
+              </ol>
 
-          <li>Mild demented Alzheimer’s</li>
-          <li>Very mild demented Alzheimer’s</li>
-          <li>Moderate demented Alzheimer’s</li>
-          <li>Nondemented Alzheimer’s</li></p>
-       
+            </div>
+            
+         
+          
+        </H2>
 
-        <form action = "/prediction" method = "post" enctype="multipart/form-data">  
-          <input type="file" name="file" />  
-          <input type = "submit" value="Upload" href="#" class="btn btn-primary btn-xl rounded-pill mt-5">  
-        </form> 
+          
 
-        <p2 class="masthead-body">
-          For the most accurate categorization, please upload a cross-sectional MRI scan that has been pre-processed to remove the skull outline (skull stripped).
-        </p2>
-
-        <form action = "https://github.com/npysklyw/alz-class" method = "get" enctype="multipart/form-data">  
-          <input type = "submit" value="Click to get our code" href="#" class="btn btn-primary btn-xl rounded-pill mt-5">  
-        </form> 
-        <form action = "https://github.com/npysklyw/alz-class" method = "get" enctype="multipart/form-data">  
-          <input type = "submit" value="Click to get our code" href="#" class="btn btn-primary btn-xl rounded-pill mt-5">  
-        </form> 
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -72,15 +72,16 @@
   <section>
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 order-lg-2">
+        <div class="col-lg-6 order-lg-3">
           <div class="p-5">
-            <img class="img-fluid square" src="static/img/1.jpg" alt="">
+            <img class="img-fluid square" src="static/img/2.png" alt="">
           </div>
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4">Note</h2>
-            The algorithm was created by Western University students as a thought-experiment and is intended for educational purposes only. This is not intended to be used in a legitimate medical context.
+            <h2 class="display-4">The Technical Details</h2>
+            <p>We implemented a VGG-16 convolutional neural network using the Python library Keras. The specific notebook can be found <a href="https://github.com/npysklyw/alz-class" target="_blank">here</a> along with the <a href="https://www.kaggle.com/tourist55/alzheimers-dataset-4-class-of-images" target="_blank">dataset</a>.
+ </p>
           </div>
         </div>
       </div>
@@ -92,26 +93,53 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="p-5">
-            <img class="img-fluid square" src="static/img/2.png" alt="">
+            <img class="img-fluid square" src="static/img/1.jpg" alt="">
           </div>
         </div>
         <div class="col-lg-6">
           <div class="p-5">
-            <h2 class="display-4">The Technical Details</h2>
-            <p>We implemented a VGG-16 convolutional neural network using Python library keras. The specific notebook can be found here: <a href="https://github.com/npysklyw/alz-class">https://github.com/npysklyw/alz-class</a> 
-            </p>
+            <h2 class="display-4">Disclaimer</h2>
+            The algorithm was created by Western University students as a thought-experiment and is intended for educational purposes only. This is not intended to be used in a legitimate medical context.
           </div>
+          
         </div>
       </div>
     </div>
   </section>
 
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">Classify The Stage</h1>
+       
+
+          <form action = "/prediction" method = "post" enctype="multipart/form-data">  
+            <input type="file" name="file" />  
+            <input type = "submit" value="Upload" href="#" class="btn btn-primary btn-xl rounded-pill mt-5">  
+          </form> 
+  
+          <p2 class="masthead-body">
+            For the most accurate categorization, please upload a cross-sectional MRI scan that has been pre-processed to remove the skull outline (skull stripped).
+          </p2>
+
+        
+
+      </div>
+    </div>
+    <div class="bg-circle-5 bg-circle"></div>
+    <div class="bg-circle-6 bg-circle"></div>
+    <div class="bg-circle-7 bg-circle"></div>
+    <div class="bg-circle-8 bg-circle"></div>
+  </header>
+
+
+
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; ALZ-IDENTIFIERS 2020</p>
-    </div>The specific notebook can be found here: <a href="https://github.com/npysklyw/alz-class">https://github.com/npysklyw/alz-class</a> 
-              The dataset used can be accessed via the following link: https://www.kaggle.com/tourist55/alzheimers-dataset-4-class-of-images
+      <p class="m-0 text-center text-white small"> A project by Nick Pysklywec, Daniel Xie, Yazan Hassan, and Rashid Al-Sayani</p>
+ 
     <!-- /.container -->
   </footer>
 
