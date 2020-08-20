@@ -9,9 +9,12 @@ import scaler
 import h5py
 import boto3
 
-s3_resource = boto3.resource('s3')
 
-s3_resource.Object('alzidentifiers', 'model_one.h5').download_file(
+s3 = boto3.resource('s3',
+         aws_access_key_id=AKIAYVVWISVUA2ETKAMV ,
+         aws_secret_access_key= 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)
+
+s3.Object('alzidentifiers', 'model_one.h5').download_file(
     f'model_one.h5') # Python 3.6+
 
 #s3.download_file('BUCKET_NAME', 'OBJECT_NAME', 'FILE_NAME')
