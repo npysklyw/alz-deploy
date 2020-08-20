@@ -7,6 +7,14 @@ import keras.models
 import numpy as np  
 import scaler
 import h5py
+import boto3
+
+s3_resource = boto3.resource('s3')
+
+s3_resource.Object('alzidentifiers', 'model_one.h5').download_file(
+    f'model_one.h5') # Python 3.6+
+
+#s3.download_file('BUCKET_NAME', 'OBJECT_NAME', 'FILE_NAME')
 
 def return_prediction(model,scaler,image):
     #function takes image, converts to numpy array preprocesses it, then predicts what case is
