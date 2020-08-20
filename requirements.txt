@@ -1,5 +1,6 @@
 gunicorn==19.9.0
 Flask==1.1.1
+boto3==1.14.45
 Flask-WTF==0.14.3
 h5py==2.10.0
 html5lib==0.9999999
