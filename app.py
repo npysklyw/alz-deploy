@@ -12,13 +12,12 @@ import os
 
 
 s3 = boto3.resource('s3',
-         aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'] ,
-         aws_secret_access_key= os.environ['AWS_SECRET_ACCESS_KEY'] )
+       aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'] ,
+      aws_secret_access_key= os.environ['AWS_SECRET_ACCESS_KEY'] )
 
 s3.Object(os.environ['S3_BUCKET_NAME'], 'model_one.h5').download_file(
-    f'model_one.h5') # Python 3.6+
+   f'model_one.h5') # Python 3.6+
 
-#s3.download_file('BUCKET_NAME', 'OBJECT_NAME', 'FILE_NAME')
 
 def return_prediction(model,scaler,image):
     #function takes image, converts to numpy array preprocesses it, then predicts what case is
@@ -27,10 +26,11 @@ def return_prediction(model,scaler,image):
     imagedata = scaler.scale(image)
     
 
-    classes = np.array(['mild-demented', 'moderate-demented','non-demented','very-mild-demented'])
-    class_ind = np.argmax(model.predict_on_batch(imagedata))
+    classes = np.array(['Mild Dementia', 'Moderate Dementia','No Dementia','Very Mild Dementia'])
+    guess = model.predict_on_batch(imagedata)
+    class_ind = np.argmax(guess)
     
-    return classes[class_ind]
+    return classes[class_ind],guess
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
@@ -66,10 +66,10 @@ def prediction():
 
  
 
-    results = return_prediction(model=model,scaler=scaler,image=request.files['file'] )
+    results, percents = return_prediction(model=model,scaler=scaler,image=request.files['file'] )
 
     
-    return render_template('prediction.html',results=results)
+    return render_template('prediction.html',results=results,milddem= (100*percents[0,1]),moddem=(100*percents[0,1]),nondem=(100*percents[0,2]),vmd=(100*percents[0,3]))
 
 if __name__ == '__main__':
     app.run(debug=True)
