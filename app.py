@@ -11,8 +11,8 @@ import boto3
 
 
 s3 = boto3.resource('s3',
-         aws_access_key_id='AKIAYVVWISVUA2ETKAMV' ,
-         aws_secret_access_key= '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')
+         aws_access_key_id='' ,
+         aws_secret_access_key= '')
 
 s3.Object('alzidentifiers', 'model_one.h5').download_file(
     f'model_one.h5') # Python 3.6+
