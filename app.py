@@ -8,9 +8,9 @@ import boto3
 import os
 
 
-s3 = boto3.resource('s3',aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],aws_secret_access_key= os.environ['AWS_SECRET_ACCESS_KEY'] )
+#s3 = boto3.resource('s3',aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],aws_secret_access_key= os.environ['AWS_SECRET_ACCESS_KEY'] )
 
-s3.Object(os.environ['S3_BUCKET_NAME'], 'model_one.h5').download_file( f'model_one.h5') # Python 3.6+
+#s3.Object(os.environ['S3_BUCKET_NAME'], 'model_one.h5').download_file( f'model_one.h5') # Python 3.6+
 
 
 def return_prediction(model,scaler,image):
@@ -41,11 +41,12 @@ def prediction():
     results, percents = return_prediction(model=model,scaler=scaler,image=request.files['file'] )
 
     vm = np.around((100*percents[0,3]),3)
-    milddem = np.around((100*percents[0,1]),3)
+    milddem = np.around((100*percents[0,0]),3)
 
     nondem = np.around((100*percents[0,2]),3)
     moddem = np.around((100*percents[0,1]),3)
 
+    print(milddem)
     mildemw = str(np.max([milddem,1])) + "%"
     moddemw = str(np.max([moddem,1])) + "%"
     nondemw = str(np.max([nondem,1])) + "%"
