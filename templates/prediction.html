@@ -42,19 +42,30 @@
     <p2 class="masthead-heading mb-0">{{results}}</p2>
     <p class="masthead-body mb-0">Our model thinks these percentages:</p>
     
-    <p2 class="masthead-heading mb-0" style="font-size:30pt">Mild Dementia: {{milddem}} %</p2>
-    <br>
-    <p2 class="masthead-heading mb-0" style="font-size:30pt">Moderate Dementia: {{moddem}} %</p2>
-    <br>
-    <p2 class="masthead-heading mb-0" style="font-size:30pt">No Dementia: {{nondem}} %</p2>
       <br>
-    <p2 class="masthead-heading mb-0" style="font-size:30pt">Very Mild Dementia: {{vmd}} %</p2>
-    
-    
-    
-    
-    
-
+        <div class="container">
+          <div style="position: absolute;font-size:30pt; width: 950px; padding: 10px; ">Mild Dementia: {{milddem}} %</div>
+          <div style="--percent: {{mildemw}}; z-index:9;background: #000; opacity:0.5;width: var(--percent); height: 80px; "></div>
+        </div>
+        <br>
+        <div class="container">
+          <div style="position: absolute;font-size:30pt; width: 950px; padding: 10px; ">Moderate Dementia: {{moddem}}%</div>
+          <div style="--percent: {{moddemw}}; z-index:9;background: #000; opacity:0.5;width: var(--percent); height: 80px; "></div>
+        </div>
+        <br>
+        <div class="container">
+          <div style="position: absolute;font-size:30pt; width: 950px; padding: 10px; ">No Dementia: {{nondem}} %</div>
+          <div style="--percent: {{nondemw}}; z-index:9;background: #000; opacity:0.5;width: var(--percent); height: 80px; "></div>
+        </div>
+      
+        <br>
+        
+        <div class="container">
+          <div style="position: absolute;font-size:30pt; width: 950px; padding: 10px; ">Very Mild Dementia: {{vmd}} %</div>
+          <div style="--percent: {{vmdw}}; z-index:9;background: #000; opacity:0.5;width: var(--percent); height: 80px; "></div>
+        </div>
+        
+    </div>
 
       </div>
     </div>
@@ -71,7 +82,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
-      <p class="m-0 text-center text-white small">Copyright &copy; ALZ-IDENTIFIERS 2020</p>
+      <p class="m-0 text-center text-white small">ALZ-IDENTIFIERS 2020</p>
     </div>
     <!-- /.container -->
   </footer>
