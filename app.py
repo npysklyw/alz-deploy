@@ -8,9 +8,9 @@ import boto3
 import os
 
 
-#s3 = boto3.resource('s3',aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],aws_secret_access_key= os.environ['AWS_SECRET_ACCESS_KEY'] )
+s3 = boto3.resource('s3',aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],aws_secret_access_key= os.environ['AWS_SECRET_ACCESS_KEY'] )
 
-#s3.Object(os.environ['S3_BUCKET_NAME'], 'model_one.h5').download_file( f'model_one.h5') # Python 3.6+
+s3.Object(os.environ['S3_BUCKET_NAME'], 'model_one.h5').download_file( f'model_one.h5') # Python 3.6+
 
 
 def return_prediction(model,scaler,image):
